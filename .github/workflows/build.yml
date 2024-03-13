@@ -29,10 +29,11 @@ jobs:
           node-version: "18.x"
 
       - name: Install Dependencies
-        run: cd nextra
-        run: npm install
-        run: npm install -g pnpm
-        run: npm install -g @aws-amplify/cli
+        run: | 
+          cd nextra
+          npm install
+          npm install -g pnpm
+          npm install -g @aws-amplify/cli
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
