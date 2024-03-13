@@ -44,5 +44,4 @@ jobs:
 
       - name: build and deploy
         run: |
-          amplify init --appId d298pyf9b3b3j0 --envName staging -y
           amplify publish -y
