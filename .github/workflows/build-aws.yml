@@ -18,9 +18,7 @@ jobs:
           repository: Velasco1704/nextra-v2
           token: ${{ secrets.GITHUB_TOKEN }}
           path: nextra-app
-      - run: |
-          ls
-          cd nextra-app
+      - run: cd nextra-app
       # - name: Use Node.js
       #   uses: actions/setup-node@v4
       #   with:
