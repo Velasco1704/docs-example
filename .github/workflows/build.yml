@@ -1,0 +1,47 @@
+name: Deploy ITG Documentation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Nextra Repo
+        uses: actions/checkout@v4
+        with:
+          repository: Velasco1704/nextra-v2 # Specify the external repository
+          path: nextra # Specify the path to checkout the external repository
+
+      - name: Checkout Docs Pages Repo
+        uses: actions/checkout@v4
+        with:
+          path: docs-example
+
+      - name: Copy Pages from Doc Example
+        run: cp -r docs-example/* nextra
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18.x"
+
+      - name: Install Dependencies
+        run: cd nextra
+        run: npm install
+        run: npm install -g pnpm
+        run: npm install -g @aws-amplify/cli
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: build and deploy
+        run: |
+          amplify init --appId d298pyf9b3b3j0 --envName staging -y
+          amplify publish -y
