@@ -44,5 +44,6 @@ jobs:
 
       - name: build and deploy
         run: |
+          cd nextra
           amplify pull --appId d298pyf9b3b3j0 --envName staging --yes
           amplify publish --yes
