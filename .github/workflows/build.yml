@@ -42,8 +42,16 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - name: build and deploy
+      - name: Configure Amplify
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: us-east-1
         run: |
           cd nextra
           amplify pull --appId d298pyf9b3b3j0 --envName staging --yes
+
+      - name: build and deploy
+        run: |
+          cd nextra
           amplify publish --yes
