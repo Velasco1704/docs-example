@@ -16,7 +16,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: Velasco1704/nextra-v2
+          token: ${{ secrets.GITHUB_TOKEN }}
           path: external-repo
+
       - run: ls
       # - name: Use Node.js
       #   uses: actions/setup-node@v4
