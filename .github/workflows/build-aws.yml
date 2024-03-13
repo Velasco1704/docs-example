@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "external-repo/**"
 
 jobs:
   aws-publish:
@@ -12,11 +14,12 @@ jobs:
       - name: Checkout App Repo
         uses: actions/checkout@v4
       - run: echo "Test action"
-      # - name: Checkout External Repo
-      #   uses: actions/checkout@v4
-      #   with:
-      #     repository: Velasco1704/docs-example
-      #     path: external-repo
+      - name: Checkout External Repo
+        uses: actions/checkout@v4
+        with:
+          repository: Velasco1704/nextra-v2
+          path: external-repo
+      - run: ls
       # - name: Use Node.js
       #   uses: actions/setup-node@v4
       #   with:
