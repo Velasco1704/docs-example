@@ -1,4 +1,4 @@
-name: Deploy ITG
+name: Deploy ITG Documentaion
 
 on:
   push:
