@@ -1,4 +1,4 @@
-name: Deploy ITG Documentation
+name: Deploy ITG
 
 on:
   push:
@@ -29,7 +29,7 @@ jobs:
           node-version: "18.x"
 
       - name: Install Dependencies
-        run: | 
+        run: |
           cd nextra
           npm install
           npm install -g pnpm
