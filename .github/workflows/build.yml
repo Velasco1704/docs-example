@@ -34,7 +34,6 @@ jobs:
           npm install
           npm install -g pnpm
           npm install -g @aws-amplify/cli
-          ls
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -46,7 +45,7 @@ jobs:
       - name: Configure Amplify
         run: |
           cd nextra
-          bash ./scripts/pull-script.sh
+          amplify init --appId d298pyf9b3b3j0 --envName staging -y
 
       - name: build and deploy
         run: |
