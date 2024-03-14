@@ -51,7 +51,7 @@ jobs:
       - name: Configure Amplify
         run: |
           cd nextra
-          amplify init --app . --yes
+          amplify configure
 
       - name: build and deploy
         run: |
