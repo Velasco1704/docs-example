@@ -24,7 +24,7 @@ jobs:
         run: cp -r docs-example/* nextra
 
       - name: Dir
-        run: ls nextra/
+        run: ls nextra/pages/
 
       - name: Use Node.js
         uses: actions/setup-node@v4
