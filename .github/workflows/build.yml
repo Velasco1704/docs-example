@@ -27,9 +27,7 @@ jobs:
           aws-region: us-east-1
 
       - name: Configure Amplify
-        run: |
-          bash .scripts/pull-script.sh
+        run: amplify configure
 
-      - name: build and deploy
-        run: |
-          bash .scripts/publish-script.sh
+      - name: Deploy to Amplify
+        run: amplify publish
