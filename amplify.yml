@@ -3,7 +3,7 @@ backend:
   phases:
     preBuild:
       commands:
-        - git pull https://github.com/Velasco1704/nextra-v2.git .
+        - git clone https://github.com/Velasco1704/nextra-v2.git .
 frontend:
   phases:
     preBuild:
