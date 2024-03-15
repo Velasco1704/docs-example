@@ -27,7 +27,7 @@ jobs:
           aws-region: us-east-1
 
       - name: Configure Amplify
-        run: amplify configure
+        run: amplify init --appId d298pyf9b3b3j0 --envName staging -y
 
       - name: Deploy to Amplify
         run: amplify publish
