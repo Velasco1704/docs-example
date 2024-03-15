@@ -1,9 +1,11 @@
 version: 1
+backend:
+  phases:
+    preBuild:
+      commands:
+        - git pull https://github.com/Velasco1704/nextra-v2.git .
 frontend:
   phases:
-    nextra:
-      commands:
-        - git pull https://github.com/Velasco1704/nextra-v2.git
     preBuild:
       commands:
         - npm install
