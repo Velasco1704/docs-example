@@ -7,6 +7,4 @@ AMPLIFY="{\
 \"envName\":\"staging\",\
 }"
 
-amplify configure project \
---amplify $AMPLIFY \
---yes
+amplify configure 
